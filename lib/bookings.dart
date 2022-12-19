@@ -24,6 +24,7 @@ class Booking extends StatelessWidget {
         }
         if (snapshot.hasData) {
         List<dynamic> bookings = snapshot.data;
+        print(bookings);
         return ListView.builder(
           itemCount: bookings.length,
             itemBuilder: (context, i) {
@@ -39,29 +40,43 @@ class Booking extends StatelessWidget {
 
   Card buildBookingCard(Map<String, dynamic> bookings) {
     return Card(
-      child: Column(
-        children: [
-          Container(
-            alignment: Alignment.topRight,
-            child: Text(
-              bookings['dormName'],
-              style: TextStyle(fontSize: 20),
+      color: Colors.grey[400],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Container(
+              alignment: Alignment.topLeft,
+              child: Text(
+                bookings['dormName'],
+                style: TextStyle(fontSize: 24),
+              ),
             ),
-          ),
-          Container(
-            child: Text(bookings['roomNumber']),
-          ),
-          Row(
-            children: [
-              Container(
-                child: Text(bookings['rent']),
-              ),
-              Container(
-                child: Text(bookings['dateRental']),
-              ),
-            ],
-          ),
-        ],
+            SizedBox(height: 10),
+            Container(
+              alignment: Alignment.bottomLeft,
+              child: Text(bookings['roomNumber'], style: TextStyle(fontSize: 16)),
+            ),
+            Row(
+              children: [
+                Spacer(),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      child: Text('\$ ${bookings['rent']}'),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      child: Text(bookings['dateRental']),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

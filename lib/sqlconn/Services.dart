@@ -8,7 +8,7 @@ import 'package:dart_ipify/dart_ipify.dart';
 class Services {
   static Uri ROOT = Uri(
       scheme: 'http',
-      host: '192.168.1.103',
+      host: '192.168.46.242',
       path: '/dormbase_api/connection.php');
   static const _CREATE_TABLE_ACTION = 'CREATE_TABLE';
   static const _GET_ALL_ACTION = 'GET_ALL';
@@ -142,7 +142,7 @@ class Services {
   }) async {
     try {
       var map = Map<String, dynamic>();
-      map['action'] = 'GET_REVIEWS';
+      map['action'] = 'GET_BOOKINGS';
       map['userID'] = userID;
       final response = await http.post(ROOT, body: map);
       if (response.statusCode == 200) {

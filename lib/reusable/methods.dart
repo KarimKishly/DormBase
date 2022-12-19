@@ -159,7 +159,7 @@ Drawer buildDrawer({String? userID, String? name, String? email, BuildContext? c
         ),
         ListTile(
           leading: const Icon(Icons.mail, color: Colors.white),
-          title: const Text('Home', style: whiteStyle),
+          title: const Text('Bookings', style: whiteStyle),
           onTap: () => {
             Navigator.of(context!).pushNamed('/booking', arguments: userID)
           },
