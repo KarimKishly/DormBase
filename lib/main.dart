@@ -203,6 +203,12 @@ class _MyAppState extends State<MyApp> {
                                                       buildAttributeTag(
                                                           text: 'Gym'));
                                                 }
+                                                dormInfo[index]
+                                                ['dormRating'] = rating;
+                                                dormInfo[index]
+                                                ['distance'] =
+                                                regionInfo[0]
+                                                ['distance'];
                                                 return InkWell(
                                                   child: TransparentImageCard(
                                                     imageProvider: AssetImage(
@@ -220,12 +226,6 @@ class _MyAppState extends State<MyApp> {
                                                     ),
                                                   ),
                                                   onTap: () {
-                                                    dormInfo[index]
-                                                        ['dormRating'] = rating;
-                                                    dormInfo[index]
-                                                            ['distance'] =
-                                                        regionInfo[0]
-                                                            ['distance'];
                                                     Navigator.pushNamed(
                                                         context, '/dorm',
                                                         arguments: {

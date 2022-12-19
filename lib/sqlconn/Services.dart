@@ -7,7 +7,7 @@ import 'package:dart_ipify/dart_ipify.dart';
 class Services {
   static Uri ROOT = Uri(
       scheme: 'http',
-      host: '10.31.217.157',
+      host: '192.168.46.242',
       path: '/dormbase_api/connection.php');
   static const _CREATE_TABLE_ACTION = 'CREATE_TABLE';
   static const _GET_ALL_ACTION = 'GET_ALL';
