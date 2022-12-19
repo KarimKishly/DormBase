@@ -293,7 +293,7 @@ class dormReviews extends StatelessWidget {
         ListView.builder(
           padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: reviews.length,
+          itemCount: (reviews.isEmpty) ? 0 : (reviews.length == 1) ? 1 : 2,
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
             return ReviewCard(review: reviews[index]);
