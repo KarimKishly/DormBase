@@ -219,7 +219,6 @@ Padding buildFilterCard(BuildContext context, String userID) {
             const Text('Filter results'),
             IconButton(
               onPressed: () {
-                Navigator.of(context).pop();
                 Navigator.pushNamed(context, '/filter', arguments: userID);
               },
               icon: const Icon(Icons.arrow_drop_down),
