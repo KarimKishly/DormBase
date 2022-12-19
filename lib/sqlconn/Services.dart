@@ -2,13 +2,12 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart'
     as http; // add the http plugin in pubspec.yaml file.
-import 'Employee.dart';
 import 'package:dart_ipify/dart_ipify.dart';
 
 class Services {
   static Uri ROOT = Uri(
       scheme: 'http',
-      host: '192.168.46.242',
+      host: '192.168.1.3',
       path: '/dormbase_api/connection.php');
   static const _CREATE_TABLE_ACTION = 'CREATE_TABLE';
   static const _GET_ALL_ACTION = 'GET_ALL';
@@ -154,6 +153,23 @@ class Services {
       return []; // return an empty list on exception/error
     }
   }
+  static Future<List<dynamic>> getRoomInfo({
+    required String dormID,
+  }) async {
+    try {
+      var map = Map<String, dynamic>();
+      map['action'] = 'GET_ROOM_INFO';
+      map['dormID'] = dormID;
+      final response = await http.post(ROOT, body: map);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      } else {
+        return ['something'];
+      }
+    } catch (e) {
+      return []; // return an empty list on exception/error
+    }
+  }
 
   static Future<void> bookRoom({
     required String roomID,
@@ -170,11 +186,6 @@ class Services {
     } catch (e) {
       return; // return an empty list on exception/error
     }
-  }
-
-  static List<Employee> parseResponse(String responseBody) {
-    final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-    return parsed.map<Employee>((json) => Employee.fromJson(json)).toList();
   }
 
   static Future<List<dynamic>> getRating({

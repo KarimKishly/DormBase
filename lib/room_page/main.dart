@@ -44,7 +44,7 @@ class RoomsPage extends StatelessWidget {
                 columns: ['roomID, roomNumber'],
                 condition:
                     'availability = 1 AND dormID = ${roomInDorm['dormID']}'),
-
+              Services.selectSomeFromDB(tableName: 'room', columns: ['rent', 'description'], condition: 'type = \'${roomInDorm['roomType']}\' AND dormID = ${roomInDorm['dormID']}')
             ]),
 
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -62,6 +62,7 @@ class RoomsPage extends StatelessWidget {
                   snapshot.data[0].forEach((e) {
                     roomNb.add(e);
                   });
+                  Map<String, dynamic> priceDesc = snapshot.data[1][0];
                   return Column(children: <Widget>[
                     Carousel(name: roomInDorm['dormName'].toLowerCase()),
                     Container(
@@ -80,7 +81,7 @@ class RoomsPage extends StatelessWidget {
                           const Spacer(),
                           const Icon(dollar, color: Colors.teal, size: 35.0),
                           Text(
-                            roomEx[5].toString(),
+                            priceDesc['rent'],
                             style: const TextStyle(
                               fontSize: 25.0,
                               fontWeight: FontWeight.bold,
@@ -112,7 +113,7 @@ class RoomsPage extends StatelessWidget {
                         children: [
                           Expanded(
                               child: Text(
-                            roomEx[6].toString(),
+                            priceDesc['description'],
                             style: const TextStyle(
                               fontSize: 20.0,
                               color: Colors.white70,
