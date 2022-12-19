@@ -32,18 +32,6 @@ class RoomsPage extends StatelessWidget {
       "Double rooms at Uniview contain two beds, two desk, two chairs,"
           "a TV, an AC, a small kitchen, and a bathroom."
     ];
-    const List<String> roomNb = [
-      'A101',
-      'A102',
-      'A103',
-      'B006',
-      'B202',
-      'B100',
-      'B222',
-      'B206',
-      'B111',
-      'A200'
-    ];
     return Scaffold(
         backgroundColor: Colors.grey[900],
         appBar: buildAppBar(),

@@ -14,32 +14,6 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     final Map<String, dynamic> dormInfo = dorm;
     Size screenSize = MediaQuery.of(context).size;
-    const dormExample = [
-      1,
-      "Dorm Name",
-      "81-636494",
-      50,
-      10,
-      4.2,
-      "This is the best dorm in the world. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut vulputate massa. Suspendisse malesuada at nisl ut tempor. Pellentesque a suscipit justo. Donec tincidunt metus ante, varius elementum risus rutrum quis. Vestibulum sed fringilla nisl. Morbi sollicitudin id felis sed lacinia. Vivamus nisl arcu, malesuada et accumsan sit amet, pellentesque sit amet lectus. Nulla eu urna vel massa porttitor volutpat. Nulla tempor ut velit ac faucibus. Fusce placerat lectus turpis.",
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      "6 AM",
-      "12 AM",
-      1,
-      3
-    ];
-
-    Map<int, List<bool>> rules = {
-      // 1 is the key of the rules from the ruleset table
-      1: [true, false, false]
-    };
 
     // change icon of the chip depending on the type
 
@@ -53,13 +27,7 @@ class Body extends StatelessWidget {
       "Gym": (dormInfo['dormGym'] == '1') ? true : false,
       "Parking": (dormInfo['dormParking'] == '1') ? true : false,
     };
-    // List<Review> reviews = [
-    //   Review(reviewer: 'Doe Jekli', rating: 3, description: 'This product was okay.',),
-    //   Review(reviewer: 'John Doe', rating: 5, description: 'I love this product!',),
-    //   Review(reviewer: 'Zahi', rating: 2, description: 'I was disappointed with this product.',),
-    // ];
 
-    const region = [3, 250, 100];
     const styles = TextStyle(
       color: textColorLight,
     );
@@ -74,7 +42,7 @@ class Body extends StatelessWidget {
             Carousel(name: dormInfo['dormName'].toLowerCase()),
 
             // Main info about the dorm
-            mainInfo(screenSize, dormInfo, region),
+            mainInfo(screenSize, dormInfo),
             const SizedBox(height: 10),
 
             // Description of the dorm
@@ -194,7 +162,7 @@ class Body extends StatelessWidget {
 
   // Main info showing dorm name, phone, location, rating
   SizedBox mainInfo(
-      Size screenSize, Map<String, dynamic> dorm, List<int> region) {
+      Size screenSize, Map<String, dynamic> dorm) {
     return SizedBox(
       width: screenSize.width * 0.9,
       child: Column(children: [

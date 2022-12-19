@@ -10,6 +10,7 @@ import 'package:dorm_base/sqlconn/Services.dart';
 import 'package:dorm_base/signup.dart';
 import 'package:dorm_base/login.dart';
 import 'package:dorm_base/dorm_page/ReviewPage.dart';
+import 'bookings.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -23,6 +24,7 @@ void main() {
       '/dorm': (context) => HomePage(),
       '/reviews': (context) => ReviewPage(),
       '/room': (context) => RoomsPage(),
+      '/booking': (context) => Booking(),
     },
   ));
 }
