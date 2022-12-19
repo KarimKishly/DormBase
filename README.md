@@ -24,4 +24,6 @@ After this step you need to import the used PHP scripts since they are vital for
 
  ## Troubleshooting
 
- In case there are problems with running the app, it could be due to Android Studio running the wrong `main.dart` file. To fix this go the main `lib` directory, and right-click on the `main.dart` file and click on `run 'main.dart'`
+ In case there are problems with running the app, it could be due to Android Studio running the wrong `main.dart` file. To fix this go the main `lib` directory, and right-click on the `main.dart` file and click on `run 'main.dart'`.
+
+ Another problem might be exprienced due to not having the proper dependencies on the user's machine. This can be easily fixed by going into the `pubspec.yaml` file in the main directory. From there go into the `dependencies` subsection, and adding `mysql1: ^0.20.0` under `photo_view: ^0.14.0`. Then save the file with `CTRL+S` and switch to a different tab. A warning should appear telling you that dependencies were changed. From there, click on `get dependencies` and it should update the files, installing any packages that are needed. The mysql1 package is simply a dummy one used here since it would alert Flutter to update the depencies which might not exist on the user's machine, but Flutter overlooked since the complete project is imported directly.
